@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="d-block">
+      <h1 class="my-5 text-center">Sign Up</h1>
+      <div class="row justify-content-center px-3">
+        <form class="py-3 border rounded-4 col-sm-8 col-md-8 col-lg-6 col-xl-4">
+
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" aria-describedby="name" autocomplete="username">
+
+          <label for="email" class="form-label mt-1">Email address</label>
+          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="name@example.com">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+          <label for="email" class="form-label mt-1">Password</label>
+          <div class="d-flex align-items-center form-control">
+            <input [type]="showPassword ? 'text' : 'password'" class="password-form-control" autocomplete="current-password" aria-describedby="password" #password>
+            <i class="h5" [ngClass]="{'bi bi-eye-fill': !showPassword, 'bi bi-eye-slash-fill': showPassword}" id="icon-eye" (click)="showHideIcon()"></i>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-3 float-end rounded-3">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
