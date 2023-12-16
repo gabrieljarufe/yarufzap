@@ -12,6 +12,7 @@ export class SignInComponent implements OnInit {
   iconEye: HTMLElement | null = document.getElementById("icon-eye");
   signInForm!: FormGroup;
   showPassword = false;
+  submitted = false;
 
   constructor(
     private readonly formBuilder: FormBuilder
@@ -23,9 +24,9 @@ export class SignInComponent implements OnInit {
 
   initForm(): void {
     this.signInForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required,Validators.email]],
+      password: ['', [Validators.required,Validators.minLength(8)]]
     });
   }
 
@@ -36,5 +37,9 @@ export class SignInComponent implements OnInit {
     }else{
       this.showPassword = false;
     }
+  }
+
+  onSubmit(): void{
+    console.log("request");
   }
 }
