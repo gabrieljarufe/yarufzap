@@ -9,28 +9,39 @@
         class="py-3 border rounded-4 col-sm-8 col-md-8 col-lg-6 col-xl-4">
 
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" aria-describedby="name" autocomplete="username" formControlName="name">
+          <input type="text" class="form-control" aria-describedby="name" autocomplete="name" formControlName="name"/>
+          <div class="form-text" *ngIf="signInForm.get('name')?.errors && !submitted">How should we call you?</div>
           <div *ngIf="signInForm.get('name')?.errors?.['required'] && submitted"
-          id="emailHelp" class="form-text text-danger">Name required</div>
+          class="form-text text-danger">Name required</div>
           <div *ngIf="signInForm.get('name')?.errors?.['minlength'] && submitted"
-          id="emailHelp" class="form-text text-danger">At least a 3 letter name</div>
+          class="form-text text-danger">At least a 2 letter name</div>
 
           <label for="email" class="form-label mt-1">Email address</label>
-          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="name@example.com" formControlName="email">
+          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="name@example.com" formControlName="email"/>
           <div *ngIf="signInForm.get('email')?.errors?.['required'] && submitted"
-          id="emailHelp" class="form-text text-danger">Email address required</div>
+          class="form-text text-danger">Email address required</div>
           <div *ngIf="signInForm.get('email')?.errors?.['email'] && submitted"
-          id="emailHelp" class="form-text text-danger">Email not valid</div>
+          class="form-text text-danger">Email not valid</div>
 
-          <label for="email" class="form-label mt-1">Password</label>
+          <label for="username" class="form-label mt-1">Login name</label>
+          <input type="text" class="form-control" aria-describedby="username" autocomplete="username" formControlName="username"/>
+          <div class="form-text" *ngIf="signInForm.get('name')?.errors && !submitted">This will be the name that your friends will use to add you</div>
+          <div *ngIf="signInForm.get('username')?.errors?.['required'] && submitted"
+          class="form-text text-danger">Username required</div>
+          <div *ngIf="signInForm.get('username')?.errors?.['minlength'] && submitted"
+          class="form-text text-danger">At least a 2 letter username</div>
+          <div *ngIf="signInForm.get('username')?.errors?.['maxlength'] && submitted"
+          class="form-text text-danger">At most 16 letter username</div>
+
+          <label for="password" class="form-label mt-1">Password</label>
           <div class="d-flex align-items-center form-control">
-            <input [type]="showPassword ? 'text' : 'password'" class="password-form-control" autocomplete="current-password" aria-describedby="password" #password formControlName="password">
+            <input [type]="showPassword ? 'text' : 'password'" class="password-form-control" autocomplete="current-password" aria-describedby="password" #password formControlName="password"/>
             <i class="h5" [ngClass]="{'bi bi-eye-fill': !showPassword, 'bi bi-eye-slash-fill': showPassword}" id="icon-eye" (click)="showHideIcon()"></i>
           </div>
           <div *ngIf="signInForm.get('password')?.errors?.['required'] && submitted"
-          id="emailHelp" class="form-text text-danger">Password required</div>
+          class="form-text text-danger">Password required</div>
           <div *ngIf="signInForm.get('password')?.errors?.['minlength'] && submitted"
-          id="emailHelp" class="form-text text-danger">At least a 8 digit password</div>
+          class="form-text text-danger">At least a 8 digit password</div>
 
           <button type="submit" class="btn btn-primary mt-3 float-end rounded-3" (click)="submitted = true">Sign Up</button>
         </form>

@@ -4,6 +4,7 @@ import { AppComponent } from '../app.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
 })
 export class ComponentsModule { }

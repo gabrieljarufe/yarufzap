@@ -79,7 +79,8 @@
               "browserTarget": "yaruzap:build:production"
             },
             "development": {
-              "browserTarget": "yaruzap:build:development"
+              "browserTarget": "yaruzap:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

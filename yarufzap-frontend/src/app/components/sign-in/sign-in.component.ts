@@ -24,7 +24,8 @@ export class SignInComponent implements OnInit {
 
   initForm(): void {
     this.signInForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      username: ['', [Validators.required, Validators.minLength(2),Validators.required, Validators.maxLength(16)]],
       email: ['', [Validators.required,Validators.email]],
       password: ['', [Validators.required,Validators.minLength(8)]]
     });
