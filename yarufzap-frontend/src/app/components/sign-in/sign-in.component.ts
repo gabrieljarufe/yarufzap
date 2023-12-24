@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,12 +10,12 @@ export class SignInComponent implements OnInit {
 
   @ViewChild('password') password!: ElementRef<HTMLElement>;
   iconEye: HTMLElement | null = document.getElementById("icon-eye");
-  signInForm!: FormGroup;
+  signInForm!: UntypedFormGroup;
   showPassword = false;
   submitted = false;
 
   constructor(
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: UntypedFormBuilder
   ) {}
 
   ngOnInit(): void {
